@@ -9,10 +9,17 @@ class Slider {
     }
 
 //METHODE DE DEFILEMENT DES IMAGES.
-   nextImage(){
-    
-    
-    }
+   changementImage(){
+       let that = this;
+       intervalId = setInterval(function(){
+        document.getElementById("image").innerHTML="";
+        that.indexImage++;
+        if (that.indexImage >= that.listImage.length){
+            that.indexImage = 0;
+        }
+        that.showImage();
+       }, 5000);
+   }
 
 //METHODE DE CRÉATION POUR LES IMAGES
     addImage(pathImage, altImage){
@@ -33,7 +40,7 @@ class Slider {
         image.alt = this.listImage[this.indexImage][1];
         image.style.width = "100%";
         document.getElementById("image").appendChild(image);
-        setInterval(this.nextImage, 3000);
+        //setInterval(this.nextImage, 3000);
     }
 //CRÉATION DES BOUTONS NEXT ET PREV AINSI QUE LES EVENTS ASSOCIÉS
     createButton(){
