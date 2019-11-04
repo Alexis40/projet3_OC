@@ -5,5 +5,4 @@ slider.addImage("../images/image_slider_2.jpg", "deuxième image");
 slider.addImage("../images/image_slider_3.jpg", "troisième image");
 slider.addImage("../images/image_slider_4.jpg", "quatrième image");
 slider.createButton();
-
-slider.sliderAnim();
+slider.showImage();

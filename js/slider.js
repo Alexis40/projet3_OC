@@ -5,9 +5,16 @@ class Slider {
         this.listImage = [];
         this.slider = document.getElementById(tagId);
         this.indexImage = 0;
-        this.animID = null;
+        
     }
-//METHODE DE CRÉATION POUR LE IMAGES
+
+//METHODE DE DEFILEMENT DES IMAGES.
+   nextImage(){
+    
+    
+    }
+
+//METHODE DE CRÉATION POUR LES IMAGES
     addImage(pathImage, altImage){
         this.listImage.push([pathImage, altImage]);
     }
@@ -25,8 +32,8 @@ class Slider {
         image.src = this.listImage[this.indexImage][0];
         image.alt = this.listImage[this.indexImage][1];
         image.style.width = "100%";
-        image.class = "image";
         document.getElementById("image").appendChild(image);
+        setInterval(this.nextImage, 3000);
     }
 //CRÉATION DES BOUTONS NEXT ET PREV AINSI QUE LES EVENTS ASSOCIÉS
     createButton(){
@@ -56,17 +63,4 @@ class Slider {
             this.showImage();
         }.bind(this));
     } 
-    
-    startAnim(){
-        this.showImage();
-        this.indexImage++;
-    }
-//CRÉATION D'UNE FONCTION D'ANIMATION DU SLIDER
-    sliderAnim(){
-        window.addEventListener("load", function(){
-            //this.showImage();
-            this.animID = setInterval(this.startAnim, 1000)
-        }.bind(this));
-       
-    }
 }
