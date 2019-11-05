@@ -1,9 +1,9 @@
 let slider = new Slider("slider");
 slider.createDivImage();
-slider.addImage("../images/image_slider_1.jpg", "image de velo en station");
-slider.addImage("../images/image_slider_2.jpg", "deuxième image");
-slider.addImage("../images/image_slider_3.jpg", "troisième image");
-slider.addImage("../images/image_slider_4.jpg", "quatrième image");
+slider.addImage("../images/sliderImage1.jpg", "Photo d'une carte avec icones");
+slider.addImage("../images/sliderImage2.jpg", "image du formulaire à remplir");
+slider.addImage("../images/sliderImage3.jpg", "Image du composant signature");
+slider.addImage("../images/sliderImage4.jpg", "image de velo en station");
 slider.shiftImage();
 slider.createButton();
 slider.animKeyboard();
