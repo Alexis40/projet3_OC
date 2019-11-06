@@ -9,13 +9,6 @@ class Slider {
         this.intervalId = null;
     }
 
-//CRÉATION D'UNE DIV QUI CONTIENDRA LES IMAGES.
-    createDivImage(){
-        let divImage = document.createElement("div");
-        divImage.id = "image";
-        this.slider.appendChild(divImage);
-    }
-
 //CRÉATION DES IMAGES
     addImage(pathImage, altImage){
         this.listImage.push([pathImage, altImage]);
@@ -61,28 +54,22 @@ class Slider {
        
    }
 
-//CRÉATION DES BOUTONS NEXT, PREV ET STOP AINSI QUE LES EVENTS ASSOCIÉS
-    createButton(){
+//CRÉATION DES ANIMATIONS SUR LES BOUTONS.
+    animButton(){
         //Bouton suivant
-        let buttonNext = document.createElement("button");
-        buttonNext.textContent = "Suivant";
-        this.slider.appendChild(buttonNext);
+        let buttonNext= document.querySelector(".rightButton");
         buttonNext.addEventListener("click", function(){
             this.nextImage();
         }.bind(this));
 
         //Bouton précedent
-        let buttonPrev = document.createElement("button");
-        buttonPrev.textContent = "Précédent";
-        this.slider.appendChild(buttonPrev);
+        let buttonPrev= document.querySelector(".leftButton");
         buttonPrev.addEventListener("click", function(){
             this.prevImage();
         }.bind(this));
 
         //Bouton stop
-        let buttonStop = document.createElement("button");
-        buttonStop.textContent = "stop";
-        this.slider.appendChild(buttonStop);
+        let buttonStop = document.querySelector(".stopButton");
         buttonStop.addEventListener("click", function(){
             clearInterval(this.intervalId);
         }.bind(this));
