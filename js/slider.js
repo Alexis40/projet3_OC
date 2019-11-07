@@ -10,10 +10,16 @@ class Slider {
     }
 
 //CRÉATION DES IMAGES
-    addImage(pathImage, altImage){
-        this.listImage.push([pathImage, altImage]);
+    addImage(pathImage, altImage, instruct){
+        this.listImage.push([pathImage, altImage, instruct]);
     }
 
+//REMISE A ZERO DES CONTENEURS
+    contZero(){
+        document.getElementById("image").innerHTML="";
+        document.getElementById("instruction").innerHTML="";
+    }
+    
 //AFFICHAGE DES IMAGES
     showImage(){
         let image = document.createElement("img");
@@ -22,11 +28,16 @@ class Slider {
         image.style.width = "100%";
         image.style.height = "100%";
         document.getElementById("image").appendChild(image);
+        let insElts = document.getElementById("instruction");
+        let insElt = document.createElement("p");
+        insElt.textContent = this.listImage[this.indexImage][2];
+        insElt.style.color = "#b22e3b";
+        insElts.appendChild(insElt);
     }
 
 //DEFILEMENT DES IMAGES EN AVANT
     nextImage(){
-        document.getElementById("image").innerHTML="";
+        this.contZero();
         this.indexImage++;
         if (this.indexImage >= this.listImage.length){
             this.indexImage = 0;
@@ -36,7 +47,7 @@ class Slider {
 
 //DEFILEMENT DES IMAGES EN ARRIÈRE
     prevImage(){
-        document.getElementById("image").innerHTML="";
+        this.contZero();
         this.indexImage--;
         if (this.indexImage < 0){
             this.indexImage = this.listImage.length-1;
@@ -51,7 +62,6 @@ class Slider {
        this.intervalId = setInterval(function(){
             that.nextImage();
        }, 5000);
-       
    }
 
 //CRÉATION DES ANIMATIONS SUR LES BOUTONS.
@@ -72,6 +82,14 @@ class Slider {
         let buttonStop = document.querySelector(".stopButton");
         buttonStop.addEventListener("click", function(){
             clearInterval(this.intervalId);
+        }.bind(this));
+
+        //Bouton Start
+        let buttonStart = document.querySelector(".startButton");
+        buttonStart.addEventListener("click", function(){
+            this.indexImage++;
+            this.contZero();
+            this.shiftImage();
         }.bind(this));
     }
 //CRÉATION DES EVENT AU CLICK SUR LES TOUCHES CLAVIERS.
