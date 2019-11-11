@@ -1,16 +1,53 @@
+
 body
 {
     background-color: #b22e3b;
+}
+
+header
+{
+    height:100px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+}
+
+.navigation
+{
+    height: 35px;
+    margin-top: 10px;
+    font-size: 1.4em;
+
+}
+
+ul
+{
+    display: flex;
+    list-style-type: none;
+}
+
+li
+{
+    margin-right: 15px;
+}
+
+.navigation a
+{
+    text-decoration: none;
+    color: black;
+}
+
+.logoBicloo
+{
+    height:90px;
 }
 
 #slider
 {
     display: flex;
     flex-direction: column;
+    position: absolute;
     align-items: center;
-    width: 80%;
+    width: 100%;
 }
 
 #image
@@ -58,4 +95,16 @@ body
     text-align: center;
     opacity: 90%;
     font-size: 30px;
+}
+
+footer
+{
+    margin-top: 500px;
+}
+
+#mapId
+{
+    height:490px;
+    width:545px;
+    margin-top: 510px;
 }

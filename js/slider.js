@@ -57,11 +57,11 @@ class Slider {
 
 //CHANGEMENT AUTOMATIQUE DES IMAGES.
    shiftImage(){
-       this.showImage();
-       let that = this;
+    this.contZero();   
+    this.showImage();
        this.intervalId = setInterval(function(){
-            that.nextImage();
-       }, 5000);
+            this.nextImage();
+       }.bind(this), 5000);
    }
 
 //CRÉATION DES ANIMATIONS SUR LES BOUTONS.
@@ -87,15 +87,14 @@ class Slider {
         //Bouton Start
         let buttonStart = document.querySelector(".startButton");
         buttonStart.addEventListener("click", function(){
-            this.indexImage++;
-            this.contZero();
+            this.nextImage();
             this.shiftImage();
         }.bind(this));
     }
 //CRÉATION DES EVENT AU CLICK SUR LES TOUCHES CLAVIERS.
     animKeyboard(){
         document.addEventListener("keypress", function(e){
-            //console.log(e.charCode)
+            console.log(e.keyCode)
             if(e.keyCode === 43){
                 this.nextImage();
             } else if(e.keyCode === 45){
