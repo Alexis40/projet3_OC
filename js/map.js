@@ -7,7 +7,7 @@ class Maps {
         this.map = this.map;
         this.marker = this.marker
     }
-
+//CRÉATION DE LA CARTE AVEC L'API LEAFLET
     createMap(){
         this.map = L.map(mapId).setView([this.mapLat, this.mapLong], this.zoom);
         
@@ -15,8 +15,9 @@ class Maps {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(this.map);
     }
-
+//MÉTHODE DE CRÉATION DES MARKER
     addMarker(latitude, longitude){
        this.marker = L.marker([latitude, longitude]).addTo(this.map);
     }
+
 }

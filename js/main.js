@@ -7,7 +7,7 @@ slider.shiftImage();
 slider.animButton();
 slider.animKeyboard();
 
-let nantesMap = new Maps("mapId", 47.2173000, -1.5534000, 12);
+let nantesMap = new Maps("mapId", 47.2173000, -1.5534000, 15);
 nantesMap.createMap();
 
 
