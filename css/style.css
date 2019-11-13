@@ -101,10 +101,32 @@ footer
 {
     margin-top: 500px;
 }
-
+#mapForm
+{
+    margin-top: 510px;
+    display: flex;
+}
 #mapId
 {
-    height:490px;
-    width:545px;
-    margin-top: 510px;
+    height:500px;
+    width:50%;
+}
+#form
+{
+    height: 500px;
+    width: 50%;
+    background-color: antiquewhite;
+}
+.button
+{
+    text-align: center;
+}
+#capacity, #freeBikes
+{
+    width: 20px;
+}
+#address
+{
+    width: 80%;
+    overflow-wrap: anywhere;
 }

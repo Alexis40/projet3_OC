@@ -46,15 +46,47 @@
             </button>
         </div>
     </div>
+    <!--DIV CONTENANT LA MAP ET LE FORMULAIRE-->
+    <div id="mapForm">
+        <!--CONTIENT LE CODE DE LA MAP-->
+        <div id="mapId">
+        </div>
 
-    <!--CONTIENT LE CODE DE LA MAP-->
-    <div id="mapId">
+        <!--CONTIENT LE CODE DU FORMULAIRE-->
+        <div id="form">
+            <form method="post" action="traitement.php"></form>
+                <fieldset>
+                    <legend>Information sur la station.</legend>
+
+                    <label for="status">Status de la station : </label>
+                    <input type="text" name="status" id="status" readonly="readonly"/>
+                    <br/>
+                    <label for="address">Adresse de la station :</label>
+                    <input type="text"name="address" id="address" readonly="readonly">
+                    <br/>
+                    <label for="capacity">Capacité d'accueil : </label>
+                    <input type="text" name="capacity" id="capacity" readonly="readonly"/>
+                    <br/>
+                    <label for="freeBikes">Nombre de vélo libre : </label>
+                    <input type="text" name="freeBikes" id="freeBikes" readonly="readonly"/>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Entrez vos coordonées</legend>          
+                    <label for="name">Nom : </label>
+                    <input type="text" name="name" id="name"/>
+                    <br/>
+                    <label for="forename">Prénom : </label>
+                    <input type="text" name="forename" id="forename"/>
+                </fieldset>
+                <br/>
+                
+                <input class="button" type="button" value="Réserver"/>
+
+            </form>
+        </div>
+
     </div>
-
-    <!--CONTIENT LE CODE DU FORMULAIRE-->
-    <div id="form">
-    </div>
-
     <!--CONTIENT DES MENTIONS LEGALS-->
     <footer id="legal">
         <h2 class="mentionLegal">Ce site est un sujet d'étude dans le cadre d'une formation chez <a href="https://openclassrooms.com/fr/" target="_blank">OpenClassroom</a>, 
