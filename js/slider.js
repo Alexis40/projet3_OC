@@ -1,4 +1,3 @@
-//console.log("test");
 //CRÉATION DE L'OBJET SLIDER
 class Slider {
     constructor(tagId){

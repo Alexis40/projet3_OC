@@ -1,0 +1,57 @@
+class TownStations {
+    constructor(contract, apiKey){
+        this.contract = contract;
+        this.apiKey = apiKey;
+        this.tabStations = [];
+        this.address = document.getElementById("address");;
+        this.status = document.getElementById("status");
+        this.capacity = document.getElementById("capacity");
+        this.freeBikes = document.getElementById("freeBikes");
+    }
+
+    createStations(){
+        ajaxGet("https://api.jcdecaux.com/vls/v1/stations?contract="+this.contract+"&apiKey="+this.apiKey, function(reponse){
+            let stations = JSON.parse(reponse);
+            stations.forEach(function(stationJson){
+                let station = new Station(stationJson);
+                this.tabStations[station.id] = station;
+                nantesMap.addMarkers(station.lat, station.lng, station.id);
+            }.bind(this));
+        }.bind(this));
+        this.cleaningForm();
+    };
+
+    //Ajoute les éléments d'une station sur le formulaire.
+    addStationInfos(stationNumber){
+        this.status.value = this.tabStations[stationNumber].status;
+        this.translateStatusValue();
+        this.address.value = this.tabStations[stationNumber].address;
+        this.capacity.value = this.tabStations[stationNumber].capacity;
+        this.freeBikes.value = this.tabStations[stationNumber].availableBike;
+        //console.log(this.tabStations[stationNumber]);
+    };
+
+    //ajoute un popup sur le marker
+    addPopup(stationNumber){
+        console.log(this.tabStations[stationNumber]);
+        //this.marker.bindPopup("<p>test</p>");
+    }
+
+    //Traduit la valeur du status.
+    translateStatusValue(){
+        if(this.status.value === "OPEN"){
+            this.status.value = "OUVERTE";
+        } else if(this.status.value === "CLOSED"){
+            this.status.value = "FERMÉE";
+        }
+    };
+
+    //Vidage des champs du formulaire.
+    cleaningForm(){
+        this.status.value = "" ;
+        this.address.value = "" ;
+        this.capacity.value = "" ;
+        this.freeBikes.value = "" ;
+    };
+}
+

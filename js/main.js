@@ -7,10 +7,14 @@ slider.shiftImage();
 slider.animButton();
 slider.animKeyboard();
 
+
+
 let nantesMap = new Maps("mapId", 47.2173000, -1.5534000, 15);
 nantesMap.createMap();
 
 
-let nantesStations = new townStations("Nantes", "065d2d6a654436e242564316c9bce3d9604e6394");
-nantesStations.callAllStations();
-nantesStations.callOneStation("105");
+let nantesStations = new TownStations("Nantes", "065d2d6a654436e242564316c9bce3d9604e6394");
+nantesStations.createStations();
+
+//let icon = new Icon("images/iconVelo.png", 38, 50);
+
