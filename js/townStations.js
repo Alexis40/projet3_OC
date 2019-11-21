@@ -15,11 +15,15 @@ class TownStations {
             stations.forEach(function(stationJson){
                 let station = new Station(stationJson);
                 this.tabStations[station.id] = station;
-                nantesMap.addMarkers(station.lat, station.lng, station.id);
+                nantesMap.addMarker(station.lat, station.lng);
+                nantesMap.addPopup(station.address);
+                nantesMap.addInfos(station.id);
             }.bind(this));
         }.bind(this));
         this.cleaningForm();
     };
+
+    
 
     //Ajoute les éléments d'une station sur le formulaire.
     addStationInfos(stationNumber){
@@ -30,12 +34,6 @@ class TownStations {
         this.freeBikes.value = this.tabStations[stationNumber].availableBike;
         //console.log(this.tabStations[stationNumber]);
     };
-
-    //ajoute un popup sur le marker
-    addPopup(stationNumber){
-        console.log(this.tabStations[stationNumber]);
-        //this.marker.bindPopup("<p>test</p>");
-    }
 
     //Traduit la valeur du status.
     translateStatusValue(){

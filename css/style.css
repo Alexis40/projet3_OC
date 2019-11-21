@@ -130,3 +130,9 @@ footer
     width: 80%;
     overflow-wrap: anywhere;
 }
+
+#canvas
+{
+    background-color: white;
+    border: 2px solid black;
+}

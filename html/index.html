@@ -54,7 +54,7 @@
 
         <!--CONTIENT LE CODE DU FORMULAIRE-->
         <div id="form">
-            <form method="post" action="traitement.php"></form>
+            <form method="post" action="traitement.php">
                 <fieldset>
                     <legend>Information sur la station.</legend>
 
@@ -81,8 +81,11 @@
                 </fieldset>
                 <br/>
                 
-                <input class="button" type="button" value="Réserver"/>
+                <button class="signing">Siganture</button>
 
+                <canvas id="canvas" width="300" height="180"></canvas>
+
+                <input class="button" type="submit" value="Réserver"/>
             </form>
         </div>
 
@@ -94,13 +97,17 @@
             rendez-vous <a href="https://www.bicloo.nantesmetropole.fr/home">ici</a></h2>
     </footer>
 
-   
+    
     <script src="../js/slider.js"></script>
-    <script src="../js/icon.js"></script>
+    <script src="../js/form.js"></script>
+    <script src="../js/canvas.js"></script>
+    <script src="../js/ajax.js"></script>
     <script src="../js/station.js"></script>
     <script src="../js/map.js"></script>
     <script src="../js/townStations.js"></script>
-    <script src="../js/ajax.js"></script>
+    
+    <script src="../js/icon.js"></script>
+    
     <script src="../js/main.js"></script>
     
 </body>
