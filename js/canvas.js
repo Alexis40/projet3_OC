@@ -6,9 +6,10 @@ class Canvas {
         this.clickY = [];
         this.clickDrag = [];
         this.paint = false;
+        this.resetButton = document.querySelector(".reset");
 
     }
-//FONCTION POUR JOUER L'ECRITURE SUR LE CANVAS
+    //FONCTION POUR JOUER L'ECRITURE SUR LE CANVAS
     draw(){
        //AU CLICK SOURIS ON COMMENCE LE DESSIN.
         this.canvas.addEventListener("mousedown", function(e){
@@ -39,14 +40,14 @@ class Canvas {
         this.canvas.addEventListener("mouseleave", function(e){
             this.paint = false;
         }.bind(this));
-    };
+    }
 
-    //FONCTION QUI PERMET DE STOCKER LES POSITION DANS LEURS TABLEAU RESPECTIF
+    //FONCTION QUI PERMET DE STOCKER LES POSITION DANS LEURS TABLEAUX RESPECTIFS.
     addclick(x, y, dragging){
         this.clickX.push(x);
         this.clickY.push(y);
         this.clickDrag.push(dragging);
-    };
+    }
 
     //FONCTION QUI AFFICHE LE DESSIN.
     redraw(){
@@ -66,8 +67,17 @@ class Canvas {
             this.context.lineTo(this.clickX[i], this.clickY[i]);
             this.context.closePath();
             this.context.stroke();
-        };
-    };
+        }
+    }
+
+    resetCanvas(){
+        this.resetButton.addEventListener("click", function(){
+            this.context.clearRect(0, 0,  this.context.canvas.width,  this.context.canvas.height);
+            this.clickX = [];
+            this.clickY = [];
+            this.clickDrag = [];
+        }.bind(this));
+    }
 }
 
 

@@ -16,28 +16,31 @@ class Maps {
             minZoom: 10,
             maxZoom: 20
         }).addTo(this.myMap);
-    };
+    }
 
         //Création des marqueurs.
-    addMarker(latitude, longitude){
+    addMarker(station){
         this.blueIcon = L.icon({
             iconUrl: "../images/iconVelo2.png",
             iconSize: [38, 50]
         })
-        this.marker = L.marker([latitude, longitude],{icon: this.blueIcon}).addTo(this.myMap);
-    };
-        //création des popups.
-    addPopup(address){
-        this.marker.addEventListener("mouseover", function(){
-            console.log("test");
-            this.marker.bindPopup("<p>"+address+"</p>");
+        let marker = L.marker([station.lat, station.lng],{icon: this.blueIcon}).addTo(this.myMap);
+        this.addPopup(marker, station);
+        this.addInfos(marker, station);
+    }
+    
+    //création des popups.
+    addPopup(marker, station){
+        marker.addEventListener("mouseover", function(){
+            let latLng = L.latLng(station.lat, station.lng);
+            marker.bindPopup("<p>"+station.address+"</p>", latLng).openPopup();
         }.bind(this));
     }
 
-        //ajout des infos au formulaire.
-    addInfos(stationNumber){
-        this.marker.addEventListener("click", function(){
-            nantesStations.addStationInfos(stationNumber);
+    //ajout des infos au formulaire.
+    addInfos(marker, station){
+        marker.addEventListener("click", function(){
+            nantesStations.addStationInfos(station.id);
         }.bind(this));
     }
 };  

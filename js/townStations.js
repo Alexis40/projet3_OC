@@ -15,9 +15,7 @@ class TownStations {
             stations.forEach(function(stationJson){
                 let station = new Station(stationJson);
                 this.tabStations[station.id] = station;
-                nantesMap.addMarker(station.lat, station.lng);
-                nantesMap.addPopup(station.address);
-                nantesMap.addInfos(station.id);
+                nantesMap.addMarker(station);
             }.bind(this));
         }.bind(this));
         this.cleaningForm();

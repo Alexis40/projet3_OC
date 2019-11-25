@@ -52,7 +52,7 @@ li
 
 #image
 {
-    width: 100%;
+    width: 70%;
     height: 500px;
 }
 
@@ -117,8 +117,18 @@ footer
     width: 50%;
     background-color: antiquewhite;
 }
-.button
+
+.signing
 {
+    display: block;
+}
+.reset
+{
+    display: none;
+}
+.validation
+{
+    display: none;
     text-align: center;
 }
 #capacity, #freeBikes
@@ -128,11 +138,12 @@ footer
 #address
 {
     width: 80%;
-    overflow-wrap: anywhere;
+
 }
 
 #canvas
 {
     background-color: white;
     border: 2px solid black;
+    display: none;
 }
