@@ -15,6 +15,8 @@
 </head>
 
 <body>
+
+    <!--CODE DU HEADER-->
     <header>
         <img class="logoBicloo" src="../images/logo bicloo.jpg" alt="logo Bicloo">
         <nav class="navigation">
@@ -27,7 +29,7 @@
     </header>
 
 
-    <!--CONTIENT LE CODE DU SLIDER-->
+    <!--CONTIENT LE SLIDER-->
     <div id = "slider" >
         <div id ="image"></div>
         <div id ="instruction"></div>
@@ -46,52 +48,56 @@
             </button>
         </div>
     </div>
-    <!--DIV CONTENANT LA MAP ET LE FORMULAIRE-->
-    <div id="mapForm">
-        <!--CONTIENT LE CODE DE LA MAP-->
+
+    <!--CONTIENT LA MAP ET LA LOCATION-->
+    <div id ="location">
         <div id="mapId">
         </div>
-
-        <!--CONTIENT LE CODE DU FORMULAIRE-->
-        <div id="form">
+        <div id="information">
             <form method="post" action="traitement.php">
                 <fieldset>
-                    <legend>Information sur la station.</legend>
-
+                    <legend>Information de la station</legend>
                     <label for="status">Status de la station : </label>
+                    <br/>
                     <input type="text" name="status" id="status" readonly="readonly"/>
                     <br/>
                     <label for="address">Adresse de la station :</label>
+                    <br/>
                     <input type="text" name="address" id="address" readonly="readonly">
                     <br/>
                     <label for="capacity">Capacité d'accueil : </label>
+                    <br/>
                     <input type="text" name="capacity" id="capacity" readonly="readonly"/>
                     <br/>
                     <label for="freeBikes">Nombre de vélo libre : </label>
-                    <input type="text" name="freeBikes" id="freeBikes" readonly="readonly"/>
-                </fieldset>
-
-                <fieldset>
-                    <legend>Entrez vos coordonées</legend>          
-                    <label for="name">Nom : </label>
-                    <input type="text" name="name" id="name"/>
                     <br/>
-                    <label for="forename">Prénom : </label>
-                    <input type="text" name="forename" id="forename"/>
+                    <input type="text" name="freeBikes" id="freeBikes" readonly="readonly"/>
+                    <br/>
+                    <button class="signing">Signature</button>
                 </fieldset>
-                <br/>        
-
-                <button class="signing">Signature</button>
-
-                <canvas id="canvas" width="300" height="180"></canvas>
-                <button class="reset">Effacer la signature</button>
-                <input class="validation" type="submit" value="Réserver"/>
             </form>
 
-            
-        </div>
+            <div id="interaction">
+                <p>Entrez vos coordonées</p>
+                <label for="name">Nom : </label>
+                <input type="text" name="name" id="name" required="required"/>
+                <br/>
+                <label for="forename">Prénom : </label>
+                <input type="text" name="forename" id="forename" required="required"/>
+                <canvas id="canvas" width="300" height="180"></canvas>
+                <button class="reset">Effacer la signature</button>
+                <input type="submit" class="validation" value="Réserver" >
+            </div>
 
+            <div id = "timer">
+                <div class = "timerText">Vous n'avez aucune reservation en cours</div>
+                <div class = "timerChrono">-time-</div>
+                <button class = "timerStop">Annulation</button>
+                
+            </div>
+        </div>  
     </div>
+
     <!--CONTIENT DES MENTIONS LEGALS-->
     <footer id="legal">
         <h2 class="mentionLegal">Ce site est un sujet d'étude dans le cadre d'une formation chez <a href="https://openclassrooms.com/fr/" target="_blank">OpenClassroom</a>, 
@@ -106,7 +112,8 @@
     <script src="../js/ajax.js"></script>
     <script src="../js/station.js"></script>
     <script src="../js/map.js"></script>
-    <script src="../js/townStations.js"></script>   
+    <script src="../js/townStations.js"></script>
+    <script src="../js/timer.js"></script>
     <script src="../js/main.js"></script>
     
 </body>

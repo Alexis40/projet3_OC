@@ -6,8 +6,6 @@ class Canvas {
         this.clickY = [];
         this.clickDrag = [];
         this.paint = false;
-        this.resetButton = document.querySelector(".reset");
-
     }
     //FONCTION POUR JOUER L'ECRITURE SUR LE CANVAS
     draw(){
@@ -71,12 +69,10 @@ class Canvas {
     }
 
     resetCanvas(){
-        this.resetButton.addEventListener("click", function(){
-            this.context.clearRect(0, 0,  this.context.canvas.width,  this.context.canvas.height);
-            this.clickX = [];
-            this.clickY = [];
-            this.clickDrag = [];
-        }.bind(this));
+        this.context.clearRect(0, 0,  this.context.canvas.width,  this.context.canvas.height);
+        this.clickX = [];
+        this.clickY = [];
+        this.clickDrag = [];
     }
 }
 

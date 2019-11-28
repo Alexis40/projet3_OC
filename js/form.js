@@ -1,29 +1,24 @@
 class Form {
     constructor(){
-        this.signing = document.querySelector(".signing");
-        this.canvas = document.getElementById("canvas");
-        this.validation = document.querySelector(".validation");
-        this.form = document.querySelector("form");
-        this.resetSigning = document.querySelector(".reset");
+        this.btnSigning = document.querySelector(".signing");
+        this.interaction = document.getElementById("interaction");
+        this.reset = document.querySelector(".reset");
+        this.timer = document.getElementById("timer");
+        this.name = document.getElementById("name");
+        this.forename = document.getElementById("forename");
+        
+
+        this.btnSigning.addEventListener("click", function(e){
+            signingCanvas.resetCanvas();
+            this.interaction.style.display = "block";
+            this.timer.style.display = "none";
+            signingCanvas.draw();
+            e.preventDefault();
+        }.bind(this));
+
+        this.reset.addEventListener("click", function(){
+            signingCanvas.resetCanvas();
+        }.bind(this));
     }
 
-    showCanvas(){
-        this.signing.addEventListener("click", function(e){
-            this.canvas.style.display = "block";
-            this.validation.style.display = "block";
-            this.resetSigning.style.display = "block";
-            this.signing.style.display = "none";
-            e.preventDefault();
-        }.bind(this));
-    };
-
-    validReservation(){
-        this.form.addEventListener("submit", function(e){
-            this.canvas.style.display = "none";
-            this.validation.style.display = "none";
-            this.resetSigning.style.display = "none";
-            this.signing.style.display = "block";
-            e.preventDefault();
-        }.bind(this));
-    };
 }

@@ -5,6 +5,7 @@ class Maps {
         this.mapLat = mapLat;
         this.mapLong = mapLong;
         this.zoom = zoom;
+        
     }
 
         //création de la carte avec l'API Leaflet.
@@ -20,11 +21,11 @@ class Maps {
 
         //Création des marqueurs.
     addMarker(station){
-        this.blueIcon = L.icon({
+        this.icon = L.icon({
             iconUrl: "../images/iconVelo2.png",
             iconSize: [38, 50]
         })
-        let marker = L.marker([station.lat, station.lng],{icon: this.blueIcon}).addTo(this.myMap);
+        let marker = L.marker([station.lat, station.lng],{icon: this.icon}).addTo(this.myMap);
         this.addPopup(marker, station);
         this.addInfos(marker, station);
     }
@@ -33,7 +34,7 @@ class Maps {
     addPopup(marker, station){
         marker.addEventListener("mouseover", function(){
             let latLng = L.latLng(station.lat, station.lng);
-            marker.bindPopup("<p>"+station.address+"</p>", latLng).openPopup();
+            marker.bindPopup("<p>" + station.address + "</p>", latLng).openPopup();
         }.bind(this));
     }
 
@@ -41,6 +42,10 @@ class Maps {
     addInfos(marker, station){
         marker.addEventListener("click", function(){
             nantesStations.addStationInfos(station.id);
+            nantesForm.btnSigning.style.visibility = "visible";
+            if(station.status === "CLOSED"){
+                nantesForm.btnSigning.style.visibility = "hidden";
+            }
         }.bind(this));
     }
 };  

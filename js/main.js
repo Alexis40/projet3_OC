@@ -8,7 +8,6 @@ slider.animButton();
 slider.animKeyboard();
 
 
-
 let nantesMap = new Maps("mapId", 47.2173000, -1.5534000, 15);
 nantesMap.createMap();
 
@@ -16,10 +15,13 @@ let nantesStations = new TownStations("Nantes", "065d2d6a654436e242564316c9bce3d
 nantesStations.createStations();
 
 let signingCanvas = new Canvas();
-signingCanvas.draw();
-signingCanvas.resetCanvas();
+
 
 let nantesForm = new Form();
-nantesForm.showCanvas();
-nantesForm.validReservation();
+//nantesForm.showInteraction();
+
+
+
+let timer = new Timer("timer");
+
 

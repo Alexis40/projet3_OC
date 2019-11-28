@@ -30,7 +30,7 @@ class TownStations {
         this.address.value = this.tabStations[stationNumber].address;
         this.capacity.value = this.tabStations[stationNumber].capacity;
         this.freeBikes.value = this.tabStations[stationNumber].availableBike;
-        //console.log(this.tabStations[stationNumber]);
+
     };
 
     //Traduit la valeur du status.

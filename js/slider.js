@@ -93,7 +93,6 @@ class Slider {
 //CRÉATION DES EVENT AU CLICK SUR LES TOUCHES CLAVIERS.
     animKeyboard(){
         document.addEventListener("keypress", function(e){
-            console.log(e.keyCode)
             if(e.keyCode === 43){
                 this.nextImage();
             } else if(e.keyCode === 45){
