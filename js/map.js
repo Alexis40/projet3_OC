@@ -5,7 +5,7 @@ class Maps {
         this.mapLat = mapLat;
         this.mapLong = mapLong;
         this.zoom = zoom;
-        
+        this.address = "";
     }
 
         //création de la carte avec l'API Leaflet.
@@ -43,9 +43,12 @@ class Maps {
         marker.addEventListener("click", function(){
             nantesStations.addStationInfos(station.id);
             nantesForm.btnSigning.style.visibility = "visible";
+            this.address = station.address;
             if(station.status === "CLOSED"){
                 nantesForm.btnSigning.style.visibility = "hidden";
             }
+            timer.station = station;
+console.log(timer.station);
         }.bind(this));
     }
 };  

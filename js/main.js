@@ -18,8 +18,7 @@ let signingCanvas = new Canvas();
 
 
 let nantesForm = new Form();
-//nantesForm.showInteraction();
-
+//nantesForm.stockeIdentity();
 
 
 let timer = new Timer("timer");

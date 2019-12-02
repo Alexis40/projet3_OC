@@ -6,11 +6,12 @@ class Timer {
         this.eltChrono = this.eltTimer.querySelector(".timerChrono");
         this.eltStop = this.eltTimer.querySelector(".timerStop");
         this.eltText = this.eltTimer.querySelector(".timerText");
-
+        
         this.time = 0;
         this.endTime = 0;
         this.timerText = "";
-
+        
+        this.station = null;
 
         //Au click sur le bouton reservé on declenche le copmte à rebours. C'est ici qu'on choisira le temps du compte à rebours.
         this.reserve.addEventListener("click", function(e){
@@ -18,11 +19,14 @@ class Timer {
                 alert("Veuillez entrer votre nom, prénom et signature pour valider votre réservation.");
                 e.preventDefault(e);
             }else{
-                this.startTimer(Date.now() + 1000 * 1200, "Vous avez une reservation en cours");
+                nantesForm.stockIdentity();
+console.log(this.station.name);
+                this.startTimer(Date.now() + 1000 * 30, "vous avez une reservation à la station " + nantesMap.address);
                 this.eltChrono.style.display = "block";
                 this.eltStop.style.display = "block";
                 this.eltTimer.style.display = "block";
                 nantesForm.interaction.style.display = "none";
+
             };
         }.bind(this));
 
@@ -51,6 +55,7 @@ class Timer {
         this.eltText.textContent = "Vous avez annulé votre reservtaion.";
         sessionStorage.removeItem(this.id+"endTime");
         sessionStorage.removeItem(this.id+"timerText");
+        this.station = null;
     }
 
      /*METHODE DE MISE EN ROUTE DU TIMER*/
