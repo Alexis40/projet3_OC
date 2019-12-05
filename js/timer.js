@@ -10,8 +10,8 @@ class Timer {
         this.time = 0;
         this.endTime = 0;
         this.timerText = "";
-        
         this.station = null;
+
 
         //Au click sur le bouton reservé on declenche le copmte à rebours. C'est ici qu'on choisira le temps du compte à rebours.
         this.reserve.addEventListener("click", function(e){
@@ -20,21 +20,27 @@ class Timer {
                 e.preventDefault(e);
             }else{
                 nantesForm.stockIdentity();
-console.log(this.station.name);
-                this.startTimer(Date.now() + 1000 * 30, "vous avez une reservation à la station " + nantesMap.address);
+                this.station.availableBike--;
+                nantesStations.freeBikes.value = this.station.availableBike;
+                this.startTimer(Date.now() + 1000 * 1200, "vous avez une reservation à la station </br>" + nantesMap.address);
                 this.eltChrono.style.display = "block";
                 this.eltStop.style.display = "block";
                 this.eltTimer.style.display = "block";
                 nantesForm.interaction.style.display = "none";
-
+                nantesForm.btnSigning.style.visibility = "hidden";
             };
         }.bind(this));
 
         //Au click sur le bouton stop on arrete le compte à rebours.
         this.eltStop.addEventListener("click", function(){
-           this.stopTimer();
+            this.stopTimer();
+            this.station.availableBike++;
+            nantesStations.freeBikes.value = this.station.availableBike;
+            this.eltText.innerHTML = "Vous avez annulé votre réservation. <br>Cliquez sur une station pour effectuer une autre réservation."
             this.eltChrono.style.display = "none";
             this.eltStop.style.display = "none";
+            nantesForm.btnSigning.style.visibility = "visible";
+            this.time = 0;
         }.bind(this));
 
         /*STOCKAGE DES DONNÉES POUR MIS A JOUR DU NAVIGATEUR.*/
@@ -51,11 +57,13 @@ console.log(this.station.name);
     /* METHODE POUR STOPPER LE COMPTE A REBOURS */
     stopTimer(){
         clearInterval(this.interval);
-        this.eltChrono.textContent = "Votre réservation est arrivée à son terme.";
-        this.eltText.textContent = "Vous avez annulé votre reservtaion.";
+        this.eltText.innerHTML = "Votre réservation est arrivée à son terme.";
+        this.eltChrono.style.display = "none";
+        this.eltStop.style.display = "none";
         sessionStorage.removeItem(this.id+"endTime");
         sessionStorage.removeItem(this.id+"timerText");
-        this.station = null;
+        //this.station = null;
+        nantesForm.btnSigning.style.visibility = "visible";
     }
 
      /*METHODE DE MISE EN ROUTE DU TIMER*/
@@ -64,9 +72,9 @@ console.log(this.station.name);
         this.timerText = text;
         this.stopTimer();
         this.updateTimer();
-        this.eltText.textContent = this.timerText;
+        this.eltText.innerHTML = this.timerText;
         sessionStorage.setItem(this.id+"endTime", this.endTime);
-        sessionStorage.setItem(this.id+"timerText", this.timertext);
+        sessionStorage.setItem(this.id+"timerText", this.timerText);
         this.interval = setInterval(e => this.showTime(), 1000);
     }
 

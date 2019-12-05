@@ -21,8 +21,6 @@ class TownStations {
         this.cleaningForm();
     };
 
-    
-
     //Ajoute les éléments d'une station sur le formulaire.
     addStationInfos(stationNumber){
         this.status.value = this.tabStations[stationNumber].status;
@@ -30,7 +28,6 @@ class TownStations {
         this.address.value = this.tabStations[stationNumber].address;
         this.capacity.value = this.tabStations[stationNumber].capacity;
         this.freeBikes.value = this.tabStations[stationNumber].availableBike;
-
     };
 
     //Traduit la valeur du status.

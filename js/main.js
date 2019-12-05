@@ -1,8 +1,8 @@
 let slider = new Slider("slider");
-slider.addImage("../images/image1.jpg", "Photo d'une carte avec icones", "Choisissez votre station");
-slider.addImage("../images/sliderImage2.jpg", "image du formulaire à remplir", "Remplissez le formulaire de reservation");
-slider.addImage("../images/sliderImage3.jpg", "Image du composant signature", "Signez pour valider");
-slider.addImage("../images/sliderImage4.jpg", "image de velo en station", "Profitez !!");
+slider.addImage("../images/image1.jpeg", "Photo d'une carte avec icones", "Cliquez sur l'icone d'une station pour choisir l'endroit de votre reservation.");
+slider.addImage("../images/image2.jpeg", "image du formulaire à remplir", "Une fois votre station choisie cliquez sur Signature.");
+slider.addImage("../images/image3.jpeg", "Image du composant signature", "Inscrivez votre nom, prénom et signez.");
+slider.addImage("../images/image4.jpeg", "image de velo en station", "Vous avez maintenant une reservation durant 20 minutes.");
 slider.shiftImage();
 slider.animButton();
 slider.animKeyboard();
@@ -16,11 +16,6 @@ nantesStations.createStations();
 
 let signingCanvas = new Canvas();
 
-
 let nantesForm = new Form();
-//nantesForm.stockeIdentity();
-
 
 let timer = new Timer("timer");
-
-

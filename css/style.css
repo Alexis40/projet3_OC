@@ -1,4 +1,4 @@
-
+/*CSS GÉNÉRALE*/
 body
 {
     background-color: #b22e3b;
@@ -14,6 +14,7 @@ header
     justify-content: space-around;
 }
 
+/*CSS DU HEADER*/
 .navigation
 {
     height: 35px;
@@ -44,25 +45,26 @@ li
     height:90px;
 }
 
+/*CSS DU SLIDER*/
 #slider
 {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 510px;
+    box-shadow: 1px 1px 12px rgb(8, 8, 8);
 }
 
 #image
 {
-    width: 70%;
-    height: 500px;
+    max-width: 100%;
+    height: 100%;
 }
 
 #button
 {
     position: absolute;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .leftButton, .stopButton, .rightButton, .startButton
@@ -89,7 +91,8 @@ li
 #instruction
 {
     position: absolute;
-    margin-top: 200px;
+    margin-top: 300px;
+    margin-right: 240px;
     background-color: white;
     padding: 0px 10px;
     border-radius: 10px;
@@ -99,24 +102,31 @@ li
     opacity: 90%;
     font-size: 30px;
 }
-
+/*CSS DE LA MAP*/
 #location
 {
     display: flex;
     width: 100%;
     height:700px;
+    margin-top: 30px;
 }
 
 #mapId
 {
     height:700px;
     width:60%;
+    margin: 10px;
+    box-shadow: 1px 1px 12px rgb(8, 8, 8);
 }
+
 #information
 {
     width: 40%;
     height:700px;
     background-color: antiquewhite;
+    margin: 10px;
+    box-shadow: 1px 1px 12px rgb(8, 8, 8);
+    padding-top: 2px;
 }
 /*CSS DES INTERACTIONS*/
 #form
@@ -124,21 +134,28 @@ li
     height:250px;
 }
 
+#timer
+{
+    text-align: center;
+    margin-top: 160px;
+}
 #interaction
 {
     height: 450px;
     display: none;
+    text-align: center;
+    margin: 50px;
 }
 
 #capacity, #freeBikes
 {
     width: 20px;
 }
+
 #address
 {
     width: 80%;
 }
-
 
 #canvas
 {
@@ -153,9 +170,10 @@ li
 
 .timerStop
 {
-    display: none;
+    text-align: center;
+    margin: auto;
+    /*display: none;*/
 }
-
 
 .signing
 {
@@ -163,7 +181,8 @@ li
     margin-left: 40%;
     visibility: hidden;
 }
-
-footer{
-    display: none;
+/*CSS DU FOOTER*/
+#legal
+{
+    margin-top: 10px;
 }

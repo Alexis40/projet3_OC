@@ -9,17 +9,21 @@ class Form {
         
         /* ACTION DU BOUTON SIGNATURE */
         this.btnSigning.addEventListener("click", function(e){
-           
-            this.name.value = localStorage.getItem("name");
-            this.forename.value = localStorage.getItem("forename");
-
-            signingCanvas.resetCanvas();
-            this.interaction.style.display = "block";
-            this.timer.style.display = "none";
-            signingCanvas.draw();
-            e.preventDefault();
+            /*if(timer.time > 0){
+                alert("Vous avez une reservation en cours, veuillez l'annuler avant de faire une autre réservation.");
+                e.preventDefault();
+            }else{*/
+                this.name.value = localStorage.getItem("name");
+                this.forename.value = localStorage.getItem("forename");
+                signingCanvas.resetCanvas();
+                this.interaction.style.display = "block";
+                //this.timer.style.display = "none";
+                signingCanvas.draw();
+                e.preventDefault();
+            //}
         }.bind(this));
-        /* ACTION DU BONTON DE RESET DU CANVAS */
+
+        /* ACTION DU BOUTON DE RESET DU CANVAS */
         this.reset.addEventListener("click", function(){
             signingCanvas.resetCanvas();
         }.bind(this));

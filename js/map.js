@@ -8,7 +8,7 @@ class Maps {
         this.address = "";
     }
 
-        //création de la carte avec l'API Leaflet.
+        //METHODE DE CRÉATION DE LA CARTE AVEC L'API LEAFLET.
     createMap(){
         this.myMap = L.map(this.myMapId).setView([this.mapLat, this.mapLong], this.zoom);
         
@@ -19,18 +19,30 @@ class Maps {
         }).addTo(this.myMap);
     }
 
-        //Création des marqueurs.
+        //METHODE DE CRÉATION DES MARQUEURS.
     addMarker(station){
-        this.icon = L.icon({
-            iconUrl: "../images/iconVelo2.png",
-            iconSize: [38, 50]
-        })
+        if(station.availableBike === 0){
+            this.icon = L.icon({
+                iconUrl: "../images/iconeVeloRouge.png",
+                iconSize: [38, 50]
+            })
+        } else if(station.availableBike <= 3) {
+            this.icon = L.icon({
+                iconUrl: "../images/iconeVeloOrange.png",
+                iconSize: [38, 50]
+            })
+        } else {
+            this.icon = L.icon({
+                iconUrl: "../images/iconeVeloVert.png",
+                iconSize: [38, 50]
+            })
+        };
         let marker = L.marker([station.lat, station.lng],{icon: this.icon}).addTo(this.myMap);
         this.addPopup(marker, station);
-        this.addInfos(marker, station);
+        this.currentStation(marker, station);
     }
     
-    //création des popups.
+    //METHODE DE CRÉATION DES POPUP.
     addPopup(marker, station){
         marker.addEventListener("mouseover", function(){
             let latLng = L.latLng(station.lat, station.lng);
@@ -38,17 +50,21 @@ class Maps {
         }.bind(this));
     }
 
-    //ajout des infos au formulaire.
-    addInfos(marker, station){
+    //METHODE DE CRÉATION D'UNE STATION COURANTE AU CLICK SUR UN MARQUEUR.
+    currentStation(marker, station){
         marker.addEventListener("click", function(){
             nantesStations.addStationInfos(station.id);
             nantesForm.btnSigning.style.visibility = "visible";
             this.address = station.address;
-            if(station.status === "CLOSED"){
+            if((station.status === "CLOSED") ||(station.availableBike === 0)){
                 nantesForm.btnSigning.style.visibility = "hidden";
-            }
+                nantesStations.freeBikes.style.color = "red";
+                alert("Aucun velo libre à cette station");
+            }else{
+                nantesForm.btnSigning.style.visibility = "visible";
+                nantesStations.freeBikes.style.color = "";
+            };
             timer.station = station;
-console.log(timer.station);
         }.bind(this));
     }
 };  

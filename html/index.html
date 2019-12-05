@@ -22,8 +22,8 @@
         <nav class="navigation">
             <ul>
                 <li><a href="#slider">Accueil</a></li>
-                <li><a href="#map">Stations</a></li>
-                <li><a href="#form">Reservation</a></li>
+                <li><a href="#mapId">Stations</a></li>
+                <li><a href="#information">Reservation</a></li>
             </ul>
         </nav>
     </header>
@@ -56,7 +56,8 @@
         <div id="information">
             <form method="post" action="traitement.php">
                 <fieldset>
-                    <legend>Information de la station</legend>
+
+                    <legend>Informations de la station</legend>
                     <label for="status">Status de la station : </label>
                     <br/>
                     <input type="text" name="status" id="status" readonly="readonly"/>
@@ -84,7 +85,8 @@
                 <br/>
                 <label for="forename">Prénom : </label>
                 <input type="text" name="forename" id="forename" required="required"/>
-                <canvas id="canvas" width="300" height="180"></canvas>
+                </br>
+                <canvas id="canvas" width="300" height="180"></canvas></br>
                 <button class="reset">Effacer la signature</button>
                 <input type="submit" class="validation" value="Réserver" >
             </div>
