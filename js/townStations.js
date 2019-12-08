@@ -7,6 +7,7 @@ class TownStations {
         this.status = document.getElementById("status");
         this.capacity = document.getElementById("capacity");
         this.freeBikes = document.getElementById("freeBikes");
+        //this.nameStation = document.getElementById("nameStation");
     }
 
     createStations(){
@@ -28,6 +29,7 @@ class TownStations {
         this.address.value = this.tabStations[stationNumber].address;
         this.capacity.value = this.tabStations[stationNumber].capacity;
         this.freeBikes.value = this.tabStations[stationNumber].availableBike;
+        //this.nameStation.value = this.tabStations[stationNumber].nameStation;
     };
 
     //Traduit la valeur du status.
@@ -45,6 +47,7 @@ class TownStations {
         this.address.value = "" ;
         this.capacity.value = "" ;
         this.freeBikes.value = "" ;
+        //this.nameStation.value = "";
     };
 }
 

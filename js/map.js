@@ -65,6 +65,7 @@ class Maps {
                 nantesStations.freeBikes.style.color = "";
             };
             timer.station = station;
+            console.log(station);
         }.bind(this));
     }
 };  

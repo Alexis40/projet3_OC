@@ -9,10 +9,10 @@ class Form {
         
         /* ACTION DU BOUTON SIGNATURE */
         this.btnSigning.addEventListener("click", function(e){
-            /*if(timer.time > 0){
+            if(timer.time > 0){
                 alert("Vous avez une reservation en cours, veuillez l'annuler avant de faire une autre réservation.");
                 e.preventDefault();
-            }else{*/
+            }else{
                 this.name.value = localStorage.getItem("name");
                 this.forename.value = localStorage.getItem("forename");
                 signingCanvas.resetCanvas();
@@ -20,7 +20,7 @@ class Form {
                 //this.timer.style.display = "none";
                 signingCanvas.draw();
                 e.preventDefault();
-            //}
+            }
         }.bind(this));
 
         /* ACTION DU BOUTON DE RESET DU CANVAS */
@@ -35,4 +35,5 @@ class Form {
         localStorage.setItem("forename", this.forename.value);
     }
 
+   
 }

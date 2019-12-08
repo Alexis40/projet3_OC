@@ -22,7 +22,7 @@ class Timer {
                 nantesForm.stockIdentity();
                 this.station.availableBike--;
                 nantesStations.freeBikes.value = this.station.availableBike;
-                this.startTimer(Date.now() + 1000 * 1200, "vous avez une reservation à la station </br>" + nantesMap.address);
+                this.startTimer(Date.now() + 1000 * 1200, "Vous avez une reservation à la station </br>" + nantesMap.address);
                 this.eltChrono.style.display = "block";
                 this.eltStop.style.display = "block";
                 this.eltTimer.style.display = "block";
@@ -98,6 +98,19 @@ class Timer {
         if(this.time<=0){
             this.stopTimer();
         }
+    }
+
+     //initialisation au chargement de la page
+     loadPage(){
+        window.addEventListener("load", function(){
+           if(this.time > 0){
+                this.eltChrono.style.display = "block";
+                this.eltStop.style.display = "block";
+           } else {
+                this.eltChrono.style.display = "none";
+                this.eltStop.style.display = "none";
+           }
+        }.bind(this));
     }
 }
 

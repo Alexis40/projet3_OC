@@ -1,8 +1,8 @@
 class Station {
     constructor(stationJson){
-        //console.log(stationJson.status);
+        //console.log(stationJson);
         this.id = stationJson.number;
-        this.name = stationJson.name;
+        this.nameStation = stationJson.name.substring(7);
         this.address = stationJson.address;
         this.lat = stationJson.position.lat;
         this.lng = stationJson.position.lng;
