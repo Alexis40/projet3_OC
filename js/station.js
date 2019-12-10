@@ -3,6 +3,7 @@ class Station {
         //console.log(stationJson);
         this.id = stationJson.number;
         this.nameStation = stationJson.name.substring(7);
+        //console.log(this.nameStation);
         this.address = stationJson.address;
         this.lat = stationJson.position.lat;
         this.lng = stationJson.position.lng;

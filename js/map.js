@@ -6,6 +6,7 @@ class Maps {
         this.mapLong = mapLong;
         this.zoom = zoom;
         this.address = "";
+        this.nameStation = "";
     }
 
         //METHODE DE CRÉATION DE LA CARTE AVEC L'API LEAFLET.
@@ -46,7 +47,7 @@ class Maps {
     addPopup(marker, station){
         marker.addEventListener("mouseover", function(){
             let latLng = L.latLng(station.lat, station.lng);
-            marker.bindPopup("<p>" + station.address + "</p>", latLng).openPopup();
+            marker.bindPopup("<p>"+ "station : " + station.nameStation + "<br/>" + station.address + "</p>", latLng).openPopup();
         }.bind(this));
     }
 
@@ -56,6 +57,7 @@ class Maps {
             nantesStations.addStationInfos(station.id);
             nantesForm.btnSigning.style.visibility = "visible";
             this.address = station.address;
+            this.nameStation = station.nameStation;
             if((station.status === "CLOSED") ||(station.availableBike === 0)){
                 nantesForm.btnSigning.style.visibility = "hidden";
                 nantesStations.freeBikes.style.color = "red";
@@ -65,7 +67,7 @@ class Maps {
                 nantesStations.freeBikes.style.color = "";
             };
             timer.station = station;
-            console.log(station);
+            //console.log(station);
         }.bind(this));
     }
 };  

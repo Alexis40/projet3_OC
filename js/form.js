@@ -17,7 +17,7 @@ class Form {
                 this.forename.value = localStorage.getItem("forename");
                 signingCanvas.resetCanvas();
                 this.interaction.style.display = "block";
-                //this.timer.style.display = "none";
+                this.timer.style.display = "none";
                 signingCanvas.draw();
                 e.preventDefault();
             }
