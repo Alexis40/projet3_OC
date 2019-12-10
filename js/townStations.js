@@ -22,7 +22,7 @@ class TownStations {
         this.cleaningForm();
     };
 
-    //Ajoute les éléments d'une station sur le formulaire.
+    //AJOUT DES ÉLEMENT D'UNE STATION AUX CHAMP DU FORMULAIRE
     addStationInfos(stationNumber){
         this.status.value = this.tabStations[stationNumber].status;
         this.translateStatusValue();
@@ -32,7 +32,7 @@ class TownStations {
         this.nameStation.value = this.tabStations[stationNumber].nameStation;
     };
 
-    //Traduit la valeur du status.
+    //TRADUCTION DE LA VALEUR DU STATUS
     translateStatusValue(){
         if(this.status.value === "OPEN"){
             this.status.value = "OUVERTE";
@@ -41,7 +41,7 @@ class TownStations {
         }
     };
 
-    //Vidage des champs du formulaire.
+    //VIDAGE DES CHAMPS DU FORMULAIRE.
     cleaningForm(){
         this.status.value = "" ;
         this.address.value = "" ;

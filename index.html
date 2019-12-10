@@ -10,15 +10,16 @@
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
     integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
     crossorigin=""></script>
-    <link rel="stylesheet" type="text/css" href="../css/style.css"></link>
-    <title>Projet 3 Location de velo</title>
+    <link rel="icon" type="image" href="images/favicone.png" />
+    <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+    <title>Bicloo location de velos à Nantes</title>
 </head>
 
 <body>
 
     <!--CODE DU HEADER-->
     <header>
-        <img class="logoBicloo" src="../images/logo bicloo.jpg" alt="logo Bicloo">
+        <img class="logoBicloo" src="images/logo bicloo.jpg" alt="logo Bicloo">
         <nav class="navigation">
             <ul>
                 <li><a href="#slider">Accueil</a></li>
@@ -56,14 +57,11 @@
         <div id="information">
             <form method="post" action="traitement.php">
                 <fieldset>
-
                     <legend>Informations de la station</legend>
-
                     <label for="nameStation">Nom de la station : </label>
                     <br/>
                     <input type="text" name="nameStation" id="nameStation" readonly="readonly"/>
                     <br/>
-
                     <label for="status">Status de la station : </label>
                     <br/>
                     <input type="text" name="status" id="status" readonly="readonly"/>
@@ -101,7 +99,6 @@
                 <div class = "timerText">Vous n'avez aucune reservation en cours</div>
                 <div class = "timerChrono">-time-</div>
                 <button class = "timerStop">Annulation</button>
-                
             </div>
         </div>  
     </div>
@@ -114,15 +111,15 @@
     </footer>
 
     
-    <script src="../js/slider.js"></script>
-    <script src="../js/form.js"></script>
-    <script src="../js/canvas.js"></script>
-    <script src="../js/ajax.js"></script>
-    <script src="../js/station.js"></script>
-    <script src="../js/map.js"></script>
-    <script src="../js/townStations.js"></script>
-    <script src="../js/timer.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/form.js"></script>
+    <script src="js/canvas.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src="js/station.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/townStations.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/main.js"></script>
     
 </body>
 

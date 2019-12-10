@@ -13,7 +13,7 @@ class Timer {
         this.station = null;
 
 
-        //Au click sur le bouton reservé on declenche le copmte à rebours. C'est ici qu'on choisira le temps du compte à rebours.
+        //ACTION AU CLICK SUR LE BOUTON RÉSERVÉ, CHOIX DU TEMPS DU TIMER
         this.reserve.addEventListener("click", function(e){
             if((nantesForm.name.validity.valueMissing) || (nantesForm.forename.validity.valueMissing) || (signingCanvas.clickX.length === 0)){
                 alert("Veuillez entrer votre nom, prénom et signature pour valider votre réservation.");
@@ -22,7 +22,7 @@ class Timer {
                 nantesForm.stockIdentity();
                 this.station.availableBike--;
                 nantesStations.freeBikes.value = this.station.availableBike;
-                this.startTimer(Date.now() + 1000 * 1200, "Vous avez une reservation à la station : "+ nantesMap.nameStation +  "</br>" + nantesMap.address);
+                this.startTimer(Date.now() + 1000 * 10, "Vous avez une reservation à la station : "+ nantesMap.nameStation +  "</br>" + nantesMap.address);
                 this.eltChrono.style.display = "block";
                 this.eltStop.style.display = "block";
                 this.eltTimer.style.display = "block";
@@ -31,11 +31,12 @@ class Timer {
             };
         }.bind(this));
 
-        //Au click sur le bouton stop on arrete le compte à rebours.
+        //ACTIO AU CLICK SUR LE BOUTON STOP
         this.eltStop.addEventListener("click", function(){
             this.stopTimer();
-            this.station.availableBike++;
-            nantesStations.freeBikes.value = this.station.availableBike;
+            //console.log(this.station);
+            //this.station.availableBike++;
+            //nantesStations.freeBikes.value = this.station.availableBike;
             this.eltText.innerHTML = "Vous avez annulé votre réservation. <br>Cliquez sur une station pour effectuer une autre réservation."
             this.eltChrono.style.display = "none";
             this.eltStop.style.display = "none";
@@ -43,7 +44,7 @@ class Timer {
             this.time = 0;
         }.bind(this));
 
-        /*STOCKAGE DES DONNÉES POUR MIS A JOUR DU NAVIGATEUR.*/
+        /*STOCKAGE DES DONNÉES POUR MIS A JOUR DU NAVIGATEUR APRÈS RECHARGEMENT.*/
         this.endTime = sessionStorage.getItem(this.id+"endTime");
         this.timerText = sessionStorage.getItem(this.id+"timerText");
         if(this.endTime){
@@ -62,7 +63,7 @@ class Timer {
         this.eltStop.style.display = "none";
         sessionStorage.removeItem(this.id+"endTime");
         sessionStorage.removeItem(this.id+"timerText");
-        //this.station = null;
+        this.station = null;
         nantesForm.btnSigning.style.visibility = "visible";
     }
 
@@ -78,7 +79,7 @@ class Timer {
         this.interval = setInterval(e => this.showTime(), 1000);
     }
 
-     /* METHODE QUI METTRA A JOUR LE TIMER*/
+     /* METHODE DE MISE EN FORME DU TIMER*/
      updateTimer(){
         this.time = Math.round((this.endTime - Date.now()) / 1000);
         let min = Math.floor(this.time/60);
@@ -100,7 +101,7 @@ class Timer {
         }
     }
 
-     //initialisation au chargement de la page
+     //INITIALISATION DES DIVS CHRONO ET STOP AU CHARGEMENT
      loadPage(){
         window.addEventListener("load", function(){
            if(this.time > 0){

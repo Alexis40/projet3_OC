@@ -24,17 +24,17 @@ class Maps {
     addMarker(station){
         if(station.availableBike === 0){
             this.icon = L.icon({
-                iconUrl: "../images/iconeVeloRouge.png",
+                iconUrl: "images/iconeVeloRouge.png",
                 iconSize: [38, 50]
             })
         } else if(station.availableBike <= 3) {
             this.icon = L.icon({
-                iconUrl: "../images/iconeVeloOrange.png",
+                iconUrl: "images/iconeVeloOrange.png",
                 iconSize: [38, 50]
             })
         } else {
             this.icon = L.icon({
-                iconUrl: "../images/iconeVeloVert.png",
+                iconUrl: "images/iconeVeloVert.png",
                 iconSize: [38, 50]
             })
         };
@@ -67,7 +67,6 @@ class Maps {
                 nantesStations.freeBikes.style.color = "";
             };
             timer.station = station;
-            //console.log(station);
         }.bind(this));
     }
 };  

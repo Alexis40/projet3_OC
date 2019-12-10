@@ -52,13 +52,14 @@ li
     flex-direction: column;
     align-items: center;
     width: 100%;
+    height: 500px;
     box-shadow: 1px 1px 12px rgb(8, 8, 8);
 }
 
 #image
 {
-    max-width: 100%;
-    height: 100%;
+    width: 99%;
+    height: 99%;
 }
 
 #button
@@ -142,10 +143,10 @@ li
 }
 #interaction
 {
-    height: 450px;
+    height: 350px;
     display: none;
     text-align: center;
-    margin: 50px;
+    margin: auto;
 }
 
 #capacity, #freeBikes
@@ -185,6 +186,10 @@ li
 
 @media screen and (min-width:1400px)
 {
+    #slider
+    {
+        height:800px;
+    }
     #instruction
     {
         font-size: 50px;
@@ -202,6 +207,10 @@ li
 
 @media screen and (max-width:1024px)
 {
+    #slider
+    {
+        height:300px;
+    }
     #button
     {
        margin-top: 10px;
