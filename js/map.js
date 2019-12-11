@@ -27,12 +27,12 @@ class Maps {
                 iconUrl: "images/iconeVeloRouge.png",
                 iconSize: [38, 50]
             })
-        } else if(station.availableBike <= 3) {
+        }else if(station.availableBike <= 3) {
             this.icon = L.icon({
                 iconUrl: "images/iconeVeloOrange.png",
                 iconSize: [38, 50]
             })
-        } else {
+        }else{
             this.icon = L.icon({
                 iconUrl: "images/iconeVeloVert.png",
                 iconSize: [38, 50]
